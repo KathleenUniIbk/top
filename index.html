@@ -26,14 +26,18 @@
         <p>Der Ulriken hat seinen Namen vom altnorwegischen Alrek, was so viel wie „der Raum Einnehmende“ bedeutet.</p>
         <p>Der Ulriken ist auch von Bergens Stadthymne bekannt, die zwar offiziell „Ein Lied an Bergen“, heißt, aber den Untertitel „Aussichten vom Ulriken“ trägt. Nach der ersten Zeile heißt sie im Volksmund „Ich nahm meine frisch gestimmte Zither“, oder kurz „Die frisch Gestimmte“. Das Lied wurde vom Bischof Johan Nordahl Brun 1791 zu einer festlichen Zusammenkunft geschrieben. Es ist nicht bekannt, ob Brun jemals auf dem Ulriken war, aber er soll auf Skiern auf dem Gipfel des Lyderhorn gewesen sein.</p>
         <a href="https://de.wikipedia.org/wiki/Ulriken">Quelle: Wikipedia</a>
+
         <figure>
             <img src="images/attraction.jpg" alt="Blick vom Ulriken auf Bergen">
         </figure>
+        
         <!--Bild von https://pixabay.com/de/photos/stadtansicht-berge-norwegen-ulrike-7493035/-->
+       
         <figcaption>Blick auf Bergen (Quelle: <a href="https://pixabay.com/de/photos/stadtansicht-berge-norwegen-ulrike-7493035/">Pixaby)</a></figcaption>
+        
         <h3>Übersichtskarte</h3>
-    <div id="map"></div>
     <div id="map" style="width:900px;height:600px;border:1px solid silver"></div>
+
         <h3>Links</h3>
         <ul>
             <li><a href="https://www.visitnorway.de/listings/aufstieg-zum-ulriken/224879/">Ausflugtipp</a></li>
@@ -54,6 +58,8 @@
           maxZoom: 19,
           attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
+        var marker = L.marker([-45.031389, 168.660833]).addTo(map);
+    marker.bindPopup("<b>Hello world!</b><br>I am Ulriken.").openPopup();
       </script>
 </body>
 
