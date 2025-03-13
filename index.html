@@ -33,7 +33,7 @@
         <figcaption>Blick auf Bergen (Quelle: <a href="https://pixabay.com/de/photos/stadtansicht-berge-norwegen-ulrike-7493035/">Pixaby)</a></figcaption>
         <h3>Übersichtskarte</h3>
     <div id="map"></div>
-  
+    <div id="map" style="width:900px;height:600px;border:1px solid silver"></div>
         <h3>Links</h3>
         <ul>
             <li><a href="https://www.visitnorway.de/listings/aufstieg-zum-ulriken/224879/">Ausflugtipp</a></li>
@@ -48,6 +48,13 @@
             <a href="https://pruje839.github.io/top/">nächste Etappe</a>
         </nav>
     </footer>
+    <script>
+        var map = L.map('map').setView([60.383333, 5.383333], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+      </script>
 </body>
 
 </html>
