@@ -1,4 +1,3 @@
-<script>
 var map = L.map('map').setView([60.383333, 5.383333], 13);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -6,4 +5,3 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 var marker = L.marker([60.383333, 5.383333]).addTo(map);
 marker.bindPopup("<b>Hello world!</b><br>I am Ulriken.").openPopup();
-</script>
