@@ -1,9 +1,16 @@
 /*
 Skript für Lieblingsorte Webmapping
 */
-
+let stop = {
+    nr: 17,
+    title: "Bergen",
+    user: "Kathleenuniibk",
+    lat: 60.383333,
+    lng: 5.383333,
+    zoom: 13,
+  };
 //Karte initalisieren
-let map = L.map('map').setView([60.383333, 5.383333], 13);
+let map = L.map('map').setView([stop.lat, stop.lng], stop.zoom);
 
 // Hintergrundkarte definieren
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -12,13 +19,13 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
  //Marker zeichnen
-let marker = L.marker([60.383333, 5.383333]).addTo(map);
+ let marker = L.marker([stop.lat, stop.lng]).addTo(map);
 
 //Popup definieren und öffnen
 marker.bindPopup(`
-    <h2>Bergen</h2>
+    <h2>stop.title</h2>
     <ul>
-    <li>Geogr. Breite: ${lat.toFixed(5)}° </li>
-    <li>Geogr. Länge: ${lng.toFixed(5)}° </li>
+    <li>Geogr. Breite: ${stop.lat.toFixed(5)}° </li>
+    <li>Geogr. Länge: ${stop.lng.toFixed(5)}° </li>
     </ul>
     `).openPopup();
