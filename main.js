@@ -16,6 +16,9 @@ let marker = L.marker([60.383333, 5.383333]).addTo(map);
 
 //Popup definieren und öffnen
 marker.bindPopup(`
-    <b>Hello world!</b>
-    <br>I am Ulriken.
+    <h2>Bergen</h2>
+    <ul>
+    <li>Geogr. Breite: ${lat.toFixed(5)}° </li>
+    <li>Geogr. Länge: ${lng.toFixed(5)}° </li>
+    </ul>
     `).openPopup();
