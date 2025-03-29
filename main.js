@@ -215,9 +215,9 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 //Popup definieren und öffnen
 marker.bindPopup(`
-    <h2>stop.title</h2>
+    <h2>STOPS[i].title</h2>
     <ul>
-    <li>Geogr. Breite: ${stop.lat.toFixed(5)}° </li>
-    <li>Geogr. Länge: ${stop.lng.toFixed(5)}° </li>
+    <li>Geogr. Breite: ${STOPS[i].lat.toFixed(5)}° </li>
+    <li>Geogr. Länge: ${STOPS[i].lng.toFixed(5)}° </li>
     </ul>
     `).openPopup();
