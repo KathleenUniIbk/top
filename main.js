@@ -8,9 +8,9 @@ let stop = {
     lat: 60.383333,
     lng: 5.383333,
     zoom: 13,
-  };
+};
 
-  
+
 const STOPS = [
     {
         nr: 1,
@@ -121,16 +121,16 @@ const STOPS = [
         title: "Wanaka",
         user: "lizzie2911",
         lat: -44.7,
-        lon: 169.15,
-        zoom: zoom,
+        lng: 169.15,
+        zoom: 11,
     },
     {
         nr: 17,
-        title: "Queenstown",
+        title: "Bergen",
         user: "Kathleenuniibk",
-        lat: -45.031389,
-        lng: 168.660833,
-        zoom: 14,
+        lat: 60.383333,
+        lng: 5.383333,
+        zoom: 13,
     },
     {
         nr: 18,
@@ -166,7 +166,7 @@ const STOPS = [
     },
     {
         nr: 24,
-        titel: "Moeraki Boulders",
+        title: "Moeraki Boulders",
         user: "StephanPumpernik",
         lat: -45.345275,
         lng: 170.826061,
@@ -196,7 +196,7 @@ const STOPS = [
         lng: 173.682222,
         zoom: 11
     },
-  ];
+];
 
 console.log(STOPS[0]);
 console.log(STOPS[0].title);
@@ -210,22 +210,44 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
- //Marker zeichnen
- let marker = L.marker([stop.lat, stop.lng]).addTo(map);
+//loop über Etappen
+for (let i = 0; i < STOPS.length; i++) {
+    console.log(STOPS[i], STOPS[i].title);
 
-//Popup definieren
-marker.bindPopup(`
-    <h2>STOPS[i].title</h2>
+    //Marker zeichnen
+    let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
+
+    //Popup definieren
+    marker.bindPopup(`
+    <h2>${STOPS[i].title}</h2>
     <ul>
-    <li>Geogr. Breite: ${STOPS[i].lat.toFixed(5)}° </li>
+    <li>Geogr. Breite: ${STOPS[i].lat.toFixed(5)}° <li>
     <li>Geogr. Länge: ${STOPS[i].lng.toFixed(5)}° </li>
     </ul>
-    `);
+     `);
+
 
     //auf eigene Etappe blicken und Popup öffnen
-if(STOPS[i].user == "Kathleenuniibk") {
-    console.log(STOPS[i].user, "meine Etappe : -)")
-    map.setView([STOPS[i].lat, STOPS[i].lng],STOPS[i].zoom);
-    marker.openPopup();
-  }
-  
+    if (STOPS[i].user == "Kathleenuniibk") {
+        console.log(STOPS[i].user, "meine Etappe : -)")
+        map.setView([STOPS[i].lat, STOPS[i].lng], STOPS[i].zoom);
+        marker.openPopup();
+    }
+
+    //Pulldown Menü befüllen
+    let option = document.createElement("option")
+    option.value = STOPS[i].user;
+    option.text = STOPS[i].title;
+    if (STOPS[i].user == "Kathleenuniibk") {
+        option.selected = true;
+    }
+    document.querySelector("#pulldown select").appendChild(option);
+}
+
+//auf Änderungen beim Pulldown reagieren
+document.querySelector("#pulldown select").onchange = function (evt) {
+    let url = `https://${evt.target.value}.github.io/top`;
+    //console.log(url);
+    //console.log(evt.target.value);
+    window.location = url;
+} 
