@@ -3,7 +3,7 @@ Skript für Lieblingsorte Webmapping
 */
 let stop = {
     nr: 17,
-    title: "Bergen",
+    title: "Ulriken",
     user: "Kathleenuniibk",
     lat: 60.383333,
     lng: 5.383333,
