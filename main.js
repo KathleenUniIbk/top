@@ -206,12 +206,6 @@ console.log(STOPS[0].title);
 //Karte initalisieren
 let map = L.map('map');
 
-// Hintergrundkarte definieren
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
 //Overlays definieren
 let overlays = {
     etappen: L.featureGroup().addTo(map),
@@ -242,7 +236,7 @@ for (let i = 0; i < STOPS.length; i++) {
     marker.bindPopup(`
     <h2>${STOPS[i].title}</h2>
     <ul>
-    <li>Geogr. Breite: ${STOPS[i].lat.toFixed(5)}° <li>
+    <li>Geogr. Breite: ${STOPS[i].lat.toFixed(5)}° </li>
     <li>Geogr. Länge: ${STOPS[i].lng.toFixed(5)}° </li>
     </ul>
      `);
